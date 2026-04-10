@@ -16,15 +16,13 @@ public class CharacterApiController {
         this.characterService = characterService;
     }
 
-    // Get all characters
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<Collection<Character>> getAllCharacters() {
         return ResponseEntity.ok(characterService.getAllCharacters());
     }
 
-    // Get character by ID
     @GetMapping("/{id}")
-    public ResponseEntity<Character> getCharacterById(@PathVariable Long id) {
+    public ResponseEntity<Character> getCharacterById(@PathVariable("id") Long id) {
         Character character = characterService.getCharacterById(id);
 
         if (character != null) {
@@ -34,10 +32,8 @@ public class CharacterApiController {
         }
     }
 
-    // Add a new character
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<Character> createCharacter(@RequestBody Character character) {
-
         Character createdCharacter = characterService.createCharacter(character);
 
         if (createdCharacter != null) {
@@ -47,10 +43,9 @@ public class CharacterApiController {
         }
     }
 
-    // Update an existing character
     @PutMapping("/{id}")
     public ResponseEntity<Character> updateCharacter(
-            @PathVariable Long id,
+            @PathVariable("id") Long id,
             @RequestBody Character updatedCharacter) {
 
         Character character = characterService.updateCharacter(id, updatedCharacter);
@@ -62,27 +57,22 @@ public class CharacterApiController {
         }
     }
 
-    // Delete a character
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCharacter(@PathVariable Long id) {
-
+    public ResponseEntity<Void> deleteCharacter(@PathVariable("id") Long id) {
         characterService.deleteCharacter(id);
         return ResponseEntity.noContent().build();
     }
 
-    // Get characters by universe 
     @GetMapping("/universe/{universe}")
-    public ResponseEntity<Collection<Character>> getCharactersByUniverse(@PathVariable String universe) {
+    public ResponseEntity<Collection<Character>> getCharactersByUniverse(@PathVariable("universe") String universe) {
         return ResponseEntity.ok(characterService.getCharactersByUniverse(universe));
     }
 
-    // Get characters by role 
     @GetMapping("/role/{role}")
-    public ResponseEntity<Collection<Character>> getCharactersByRole(@PathVariable String role) {
+    public ResponseEntity<Collection<Character>> getCharactersByRole(@PathVariable("role") String role) {
         return ResponseEntity.ok(characterService.getCharactersByRole(role));
     }
 
-    // Search characters by name
     @GetMapping("/search")
     public ResponseEntity<Collection<Character>> searchCharactersByName(
             @RequestParam(required = false) String name) {

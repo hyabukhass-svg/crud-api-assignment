@@ -3,10 +3,12 @@ package com.example.demo;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "character")
 public class Character {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "character_id")
     private Long characterId;
 
     @Column(nullable = false)
@@ -15,7 +17,6 @@ public class Character {
     @Column(nullable = false)
     private String description;
 
-    // extra attributes
     private String role;
     private String universe;
     private double age;

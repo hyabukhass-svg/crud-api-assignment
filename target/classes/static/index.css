@@ -1,0 +1,148 @@
+body {
+  font-family: ;
+  margin: 0;
+  padding: 0;             
+  background-color: #f0e6f6;
+}
+
+
+.header {
+font-family: 'DDiSpence Script', cursive;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #850E35;
+  color: #FCF5EE;
+  position: sticky;        
+  top: 0;
+  z-index: 100;          
+}
+
+nav a {
+    color: #FCF5EE;
+    text-decoration: none;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 0;             
+}
+
+h4 {
+  font-size: 40px;
+  font-family: 'DDiSpence Script', cursive;
+  margin: 0;
+}
+
+.lines {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20px;
+}
+
+.lines span {
+  background-color: #FCF5EE;
+  width: 25px;
+  height: 3px;
+  border-radius: 15px;
+  margin: 0;
+}
+
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-container input {
+  margin-left: 50px;
+  padding: 8px 35px 8px 15px;
+  border-radius: 25px;
+  border: 1px solid #ccc    ;
+  outline: none;
+  font-size: 20px;
+  width: 400px;
+  transition: all 0.3s ease;
+  margin-top: 30px;
+  margin-right: 300px;
+  
+}
+
+.search-container input:focus {
+  box-shadow: 0 0 10px rgba(133, 14, 53, 0.5);
+}
+
+
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px;
+  padding: 30px 50px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 10px;
+  font-size: 20px;
+  color: #850E35;
+}
+
+.card p {
+  margin: 0 10px 10px 10px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+
+@media (max-width: 800px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+.nav-header nav{
+  font-family: 'DDiSpence Script', cursive;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  background-color: #FCF5EE;
+  padding: 15px;
+
+}
